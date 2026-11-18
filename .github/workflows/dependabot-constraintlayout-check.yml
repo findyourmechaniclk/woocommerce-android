@@ -1,6 +1,7 @@
 name: Dependabot POS Reminder
 
 on:
+  workflow_dispatch:
   pull_request:
     types: [opened, reopened]
 
