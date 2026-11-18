@@ -1,3 +1,8 @@
+# Optimized by ci-cost (https://github.com/mariotavarez/ci-cost)
+# Applied 1 optimization:
+# - [MEDIUM] Add concurrency group to "dependabot-constraintlayout-check.yml"
+# Estimated savings: ~2 min/run
+#
 name: Dependabot POS Reminder
 
 on:
@@ -5,6 +10,10 @@ on:
   pull_request:
     types: [opened, reopened]
 
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   add-pos-reminder:
     runs-on: ubuntu-latest
